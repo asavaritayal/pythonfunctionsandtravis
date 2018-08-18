@@ -4,6 +4,4 @@ sudo: false
 language: generic
 
 script:
-- python3 --version
-- pip install --upgrade pip
-- pip install virtualenv
+- python3.6 --version
