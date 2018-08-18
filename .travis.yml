@@ -11,13 +11,13 @@ python:
 
 install:
   - pip3 install virtualenv
-  - pip3 install setuptools
-  - pip3 install wheel
 
 script:
   - python3.6 -m venv worker_env
   - source worker_env/bin/activate
   - python --version
+  - pip3 install setuptools
+  - pip3 install wheel
   - pip3 install -r requirements.txt
   - pwd
   - cd worker_env
