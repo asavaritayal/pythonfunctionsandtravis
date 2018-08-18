@@ -15,6 +15,7 @@ install:
 script:
   - python3.6 -m venv worker_env
   - source worker_env/bin/activate
+  - python --version
   - pip install -r requirements.txt
   - pwd
   - cd worker_env
