@@ -1,8 +1,17 @@
 dist: trusty
 sudo: false
 
-language: generic
+language: python
+python:
+- 3.6
+virtualenv:
+  system_site_packages: true
+
+cache:
+  pip: true
 
 script:
-- docker --version
-- docker pull microsoft/azure-functions-python3.6
+- python --version
+- pip install requests
+- pwd
+- ls
