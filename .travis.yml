@@ -8,7 +8,9 @@ branches:
 language: python
 python:
     - 3.6
-
+virtualenv:
+  system_site_packages: true
+  
 cache:
     pip: true
 
