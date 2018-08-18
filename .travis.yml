@@ -9,41 +9,14 @@ language: python
 python:
     - 3.6
 
-addons:
-    apt:
-        sources:
-            - sourceline: deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main
-              key_url: https://packages.microsoft.com/keys/microsoft.asc
-
-        packages:
-            - libunwind8
-            - azure-functions-core-tools
-
 cache:
     pip: true
 
-install:
-    - pip install -r requirements.txt
-
 script:
     - python --version
-    - pyenv --version
+    - pip install --upgrade pip
+    - pip install venv
+    - python3.6 -m venv worker_env
+    - source worker_env/bin/activate
+    - pip install -r requirements.txt
 
-
-
-# language: python
-# python:
-#   - "3.6"
-# # command to install dependencies
-# install:
-#   - pip install -r requirements.txt
-# # command to run tests
-# script:
-#   - python pytest.py
-# deploy:
-#   provider: releases
-#   api_key: "GITHUB OAUTH TOKEN"
-#   file: "FILE TO UPLOAD"
-#   skip_cleanup: true
-#   on:
-#     tags: true
