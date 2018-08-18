@@ -8,7 +8,7 @@ services:
 before_install:
 - pwd
 - docker pull microsoft/azure-functions-python3.6
-- docker run -d -v /home/travis/build/asavaritayal/pythonfunctionsandtravis:/home/site/wwwroot:rw microsoft/azure-functions-python3.6  /bin/sh -c "mkdir test"
+- docker run -v /home/travis/build/asavaritayal/pythonfunctionsandtravis:/home/site/wwwroot:rw microsoft/azure-functions-python3.6  /bin/sh -c "mkdir test"
 
 script:
 - ls
