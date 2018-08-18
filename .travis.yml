@@ -11,3 +11,12 @@ before_install:
 
 script:
 - ls
+
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: l53Y4Ut7d35fcu21hXK0EyMdp8gJnHToHam0oAxxtN6eXxxtZhGIt6c9e/xr4ASE/JlLhf+bu6bT+bS7MlFjxi7vh678wANS4gRwE9u7nXK8IYAIhBVLqpGcxLi63j5EhYJnS+zOwj5u+adYyUPmE3XZZW5jqde3amtw5Z2knMtKqc6fIVEYs157mwQBRNMzT7K4oV2k87g3cEiGpnz2ixKtKTZIm3YmdI1CzxlotIrM9SZF0jFH8Egxmcs6L/jzIch2sVpOtM354OwgodtviTCo+xeaLRPqPcHxMxTG3MVIem3VpDfaGKRHZ6+ZSlj0w3MA3dV8txHJpINxg0ajHhW/ibeKXdeXKAkM5K1etwZuf3wSWGRaZIpUXpwFnwcEFZW3P+zU10ypQ4D7IjD1ovcMIQd5ALb8A/XPcK7OOflIxJo85PBztd1v8GWToPe7FCDySFYEcfAuHl7zuEbgeTDoO3eIvIc2BTHzVbWhx48fxtEqexsm+wDZgts7H1juU9ntRK38oruBoQwzZXgOx89DvgzWBXsbDKnM+E3j56Y/JBlLMSQ8TdpYHYrqYeXF1GCklEryNIFKGtPGKESmDUOEp9445T3+SpzqIysaSoj6iMSEcfYU1uZxWQB+rXKEXZF4zH7Z4jbdaCUQZahKjQgQzFcVUZOkTkashPaGeoo=
+  file: app.zip
+  on:
+    repo: asavaritayal/pythonfunctionsandtravis
