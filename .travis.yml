@@ -8,7 +8,7 @@ services:
 before_install:
 - pwd
 - docker pull microsoft/azure-functions-python3.6
-- docker run -it -v /home/travis/build/asavaritayal/pythonfunctionsandtravis:/home/site/wwwroot:rw microsoft/azure-functions-python3.6  .ci/build_env.sh
+- docker run -it -v /home/travis/build/asavaritayal/pythonfunctionsandtravis:/home/site/wwwroot:rw microsoft/azure-functions-python3.6  /bin/sh -c "cd /home/site/wwwroot; python -m venv --copies worker_venv; source worker_venv/bin/activate; pip install -r requirements.txt;"
 
 script:
 - ls
