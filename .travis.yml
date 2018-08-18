@@ -7,7 +7,7 @@ services:
 
 before_install:
 - docker pull microsoft/azure-functions-python3.6
-- docker run -d microsoft/azure-functions-python3.6  /bin/sh -c "python --version;"
+- docker run -d -v ".:/home/site/wwwroot" microsoft/azure-functions-python3.6  /bin/sh -c "python --version; ls;"
 - docker ps -a
 
 script:
