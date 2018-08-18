@@ -1,23 +1,14 @@
-dist: trusty
-sudo: false
-
-branches:
-    only:
-        - master
+sudo: required
 
 language: python
-python:
-  - 3.6
 
-install:
-  - pip3 install virtualenv
+services:
+  - docker
+
+before_install:
+- docker pull microsoft/azure-functions-python3.6
+- docker run -d microsoft/azure-functions-python3.6
+- docker ps -a
 
 script:
-  - python3.6 -m venv --copies worker_env
-  - source worker_env/bin/activate
-  - pip install setuptools
-  - pip install wheel
-  - pip install -r requirements.txt
-  - pwd
-  - cd worker_env
-  - ls
+- python --version
