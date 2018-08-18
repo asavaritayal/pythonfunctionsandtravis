@@ -1,1 +1,1 @@
-print "Running function tests"
+print ("Running function tests")
