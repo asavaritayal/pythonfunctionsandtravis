@@ -8,7 +8,7 @@ services:
 before_install:
 - pwd
 - docker pull microsoft/azure-functions-python3.6
-- docker run -d -v ".:/home/site/wwwroot" microsoft/azure-functions-python3.6  /bin/sh -c "python --version; cd /home/site/wwwroot; ls;"
+- docker run -d -v "/home/travis/build/asavaritayal/pythonfunctionsandtravis:/home/site/wwwroot" microsoft/azure-functions-python3.6  /bin/sh -c "python --version; cd /home/site/wwwroot; ls;"
 - docker ps -a
 
 script:
