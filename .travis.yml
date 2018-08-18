@@ -4,4 +4,4 @@ sudo: false
 language: generic
 
 script:
-- python3.6 --version
+- docker --version
