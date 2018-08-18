@@ -1,15 +1,19 @@
 dist: trusty
 sudo: false
 
+branches:
+    only:
+        - master
+
 language: python
 python:
-- 3.6
+    - 3.6
 
 cache:
-  pip: true
+    pip: true
 
 script:
-- python --version
-- pip install requests
-- pwd
-- ls
+  - python --version
+  - pip install requests
+  - pwd
+  - ls
