@@ -33,6 +33,6 @@ deploy:
   skip_cleanup: true
   provider: script
   script:
-  - az login -u $USERNAME -p $PASSWORD
+  - az login --service-principal --username $APP_ID --password $PASSWORD --tenant $TENANT_ID
   on:
     branch: master
