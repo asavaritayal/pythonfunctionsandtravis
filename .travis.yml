@@ -5,17 +5,28 @@ language: generic
 services:
   - docker
 
-before_install:
-- docker pull microsoft/azure-functions-python3.6
-- docker run -it -v /home/travis/build/asavaritayal/pythonfunctionsandtravis:/home/site/wwwroot:rw microsoft/azure-functions-python3.6  /bin/sh -c "cd /home/site/wwwroot; python -m venv --copies worker_venv; source worker_venv/bin/activate; pip install -r requirements.txt; apt-get update; apt-get install zip -y; zip --symlinks -r /home/site/wwwroot/app.zip .;"
+addons:
+    apt:
+        sources:
+            - sourceline: deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main
+              key_url: https://packages.microsoft.com/keys/microsoft.asc
 
-- echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
-- curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-- sudo apt-get install apt-transport-https
-- sudo apt-get update && sudo apt-get install azure-cli
+        packages:
+            - libunwind8
+            - azure-functions-core-tools
+
+# before_install:
+# - docker pull microsoft/azure-functions-python3.6
+# - docker run -it -v /home/travis/build/asavaritayal/pythonfunctionsandtravis:/home/site/wwwroot:rw microsoft/azure-functions-python3.6  /bin/sh -c "cd /home/site/wwwroot; python -m venv --copies worker_venv; source worker_venv/bin/activate; pip install -r requirements.txt; apt-get update; apt-get install zip -y; zip --symlinks -r /home/site/wwwroot/app.zip .;"
+
+# - echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
+# - curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+# - sudo apt-get install apt-transport-https
+# - sudo apt-get update && sudo apt-get install azure-cli
 
 script:
 - ls
+- func
 
 deploy:
   skip_cleanup: true
