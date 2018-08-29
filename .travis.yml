@@ -33,6 +33,6 @@ deploy:
   skip_cleanup: true
   provider: script
   script:
-  - az login -u USERNAME -p PASSWORD
+  - az login -u $USERNAME -p $PASSWORD
   on:
     branch: master
