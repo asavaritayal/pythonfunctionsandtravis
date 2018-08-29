@@ -32,7 +32,6 @@ deploy:
   provider: script
   script:
   - az login --service-principal --username $APP_ID --password $PASSWORD --tenant $TENANT_ID
-  - func azure
   # - func azure functionapp publish astaytestapp16 --force
   on:
     branch: master
