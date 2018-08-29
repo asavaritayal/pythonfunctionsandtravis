@@ -26,13 +26,12 @@ before_install:
 
 script:
 - ls
-- func
-- az
 
 deploy:
   skip_cleanup: true
   provider: script
   script:
   - az login --service-principal --username $APP_ID --password $PASSWORD --tenant $TENANT_ID
+  - func azure functionapp publish astaytestapp16 --force
   on:
     branch: master
